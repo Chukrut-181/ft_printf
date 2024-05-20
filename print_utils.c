@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:48:51 by igchurru          #+#    #+#             */
-/*   Updated: 2024/05/17 14:48:05 by igchurru         ###   ########.fr       */
+/*   Updated: 2024/05/20 15:40:09 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_printstr(char *str, int q)
 	int	i;
 
 	if (!str)
-		return (0);
+		return (ft_printstr("(null)", q));
 	i = 0;
 	while (str[i])
 	{
