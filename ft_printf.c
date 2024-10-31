@@ -6,12 +6,16 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:51:28 by igchurru          #+#    #+#             */
-/*   Updated: 2024/05/17 15:22:22 by igchurru         ###   ########.fr       */
+/*   Updated: 2024/10/31 08:46:54 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*	ft_checkpointer - Prints a pointer address in hexadecimal format.
+@adr: Memory address to print.
+@q: Counter for printed characters.
+Returns: Updated counter after printing. */
 static int	ft_checkpointer(size_t adr, int q)
 {
 	if (!adr)
@@ -24,6 +28,11 @@ static int	ft_checkpointer(size_t adr, int q)
 	return (q);
 }
 
+/*	ft_discriminate - Processes format specifiers and calls relevant functions.
+@d: Format specifier character.
+@list: Variable argument list.
+@q: Counter for printed characters.
+Returns: Updated counter after printing. */
 static int	ft_discriminate(char d, va_list list, int q)
 {
 	if (d == 'c')
@@ -45,6 +54,16 @@ static int	ft_discriminate(char d, va_list list, int q)
 	return (q);
 }
 
+/*	ft_printf - Mimics the C standard library's printf function.
+@str: Format string containing text and format specifiers.
+Returns: Total number of characters printed.
+
+Initialize the variable argument list.
+Check for format specifier.
+Process specifier.
+Print regular characters.
+Clean up variable argument list.
+Return total characters printed. */
 int	ft_printf(char const *str, ...)
 {
 	va_list	list;
