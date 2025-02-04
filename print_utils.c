@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:48:51 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 11:06:28 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:26:42 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printchar(char c)
 	return (write (1, &c, 1));
 }
 
-int	ft_printstr(char *str, int q)
+void	ft_printstr(char *str, int *q)
 {
 	int	i;
 
@@ -26,49 +26,41 @@ int	ft_printstr(char *str, int q)
 	i = 0;
 	while (str[i])
 	{
-		q += ft_printchar(str[i]);
+		*q += ft_printchar(str[i]);
 		i++;
 	}
-	return (q);
 }
 
-int	ft_printhex(unsigned long n, int q, char h)
+void	ft_printhex(unsigned long n, int *q, char h)
 {
 	if (15 < n)
-		q = ft_printhex(n / 16, q, h);
+		ft_printhex(n / 16, q, h);
 	if (h == 'x' || h == 'p')
-		q += ft_printchar("0123456789abcdef"[n % 16]);
-	if (h == 'X')
-		q += ft_printchar("0123456789ABCDEF"[n % 16]);
-	return (q);
+		*q += ft_printchar("0123456789abcdef"[n % 16]);
+	else if (h == 'X')
+		*q += ft_printchar("0123456789ABCDEF"[n % 16]);
 }
 
-int	ft_printnbr(int n, int q)
+void	ft_printnbr(int n, int *q)
 {
 	if (n == -2147483648)
 	{
-		q = ft_printstr("-2147483648", q);
-		return (q);
+		ft_printstr("-2147483648", q);
+		return ;
 	}
 	if (n < 0)
 	{
-		q += ft_printchar('-');
+		*q += ft_printchar('-');
 		n = -n;
 	}
 	if (9 < n)
-	{
-		q = ft_printnbr(n / 10, q);
-	}
-	q += ft_printchar((n % 10 + '0'));
-	return (q);
+		ft_printnbr(n / 10, q);
+	*q += ft_printchar((n % 10 + '0'));
 }
 
-int	ft_printunsnbr(unsigned int n, int q)
+void	ft_printunsnbr(unsigned int n, int *q)
 {
 	if (9 < n)
-	{
-		q = ft_printunsnbr(n / 10, q);
-	}
-	q += ft_printchar((n % 10 + '0'));
-	return (q);
+		ft_printunsnbr(n / 10, q);
+	*q += ft_printchar((n % 10 + '0'));
 }

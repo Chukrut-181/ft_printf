@@ -6,43 +6,41 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:51:28 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 11:07:14 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:24:46 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_checkpointer(size_t adr, int q)
+static void	ft_checkpointer(size_t adr, int *q)
 {
 	if (!adr)
-		q = ft_printstr("(nil)", q);
+		ft_printstr("(nil)", q);
 	else
 	{
-		q = ft_printstr("0x", q);
-		q = ft_printhex(adr, q, 'x');
+		ft_printstr("0x", q);
+		ft_printhex(adr, q, 'x');
 	}
-	return (q);
 }
 
-static int	ft_discriminate(char d, va_list list, int q)
+static void	ft_discriminate(char d, va_list list, int *q)
 {
 	if (d == 'c')
-		q += ft_printchar(va_arg(list, int));
+		*q += ft_printchar(va_arg(list, int));
 	else if (d == 's')
-		q = (ft_printstr(va_arg(list, char *), q));
+		ft_printstr(va_arg(list, char *), q);
 	else if (d == 'p')
-		q = ft_checkpointer(va_arg(list, size_t), q);
+		ft_checkpointer(va_arg(list, size_t), q);
 	else if (d == 'i' || d == 'd')
-		q = ft_printnbr(va_arg(list, int), q);
+		ft_printnbr(va_arg(list, int), q);
 	else if (d == 'u')
-		q = ft_printunsnbr(va_arg(list, unsigned int), q);
+		ft_printunsnbr(va_arg(list, unsigned int), q);
 	else if (d == 'x')
-		q = (ft_printhex(va_arg(list, unsigned int), q, 'x'));
+		ft_printhex(va_arg(list, unsigned int), q, 'x');
 	else if (d == 'X')
-		q = (ft_printhex(va_arg(list, unsigned int), q, 'X'));
+		ft_printhex(va_arg(list, unsigned int), q, 'X');
 	else if (d == '%')
-		q += (ft_printchar('%'));
-	return (q);
+		*q += ft_printchar('%');
 }
 
 int	ft_printf(char const *str, ...)
@@ -59,12 +57,10 @@ int	ft_printf(char const *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			q = ft_discriminate(str[i], list, q);
+			ft_discriminate(str[i], list, &q);
 		}
 		else
-		{
 			q += ft_printchar(str[i]);
-		}
 		i++;
 	}
 	va_end(list);
