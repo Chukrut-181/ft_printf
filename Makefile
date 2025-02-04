@@ -11,7 +11,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # List of source files for the project.
-SRCS = ft_printf.c print_utils.c\
+SRCS = ft_printf.c ft_printf_utils.c\
 
 # Create a list of object files by replacing each .c extension in SRCS with .o.
 OBJS = $(SRCS:.c=.o)

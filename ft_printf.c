@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:51:28 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 11:24:46 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:07:00 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ static void	ft_discriminate(char d, va_list list, int *q)
 		ft_printhex(va_arg(list, unsigned int), q, 'X');
 	else if (d == '%')
 		*q += ft_printchar('%');
+	else
+		return ;
 }
 
 int	ft_printf(char const *str, ...)

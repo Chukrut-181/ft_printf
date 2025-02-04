@@ -6,16 +6,13 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 09:59:32 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 11:27:14 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 15:25:01 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-// <unistd.h> - Provides the `write` function.
-// <stdarg.h> - Provides macros to access variable arguments 
-//              (va_list, va_start, va_arg, va_end).
 # include <unistd.h>
 # include <stdarg.h>
 
