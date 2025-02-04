@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 09:59:32 by igchurru          #+#    #+#             */
-/*   Updated: 2024/10/31 09:00:41 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:05:12 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int	ft_printf(char const *str, ...);
 
-int	ft_printchar(char c, int q);
+int	ft_printchar(char c);
 int	ft_printstr(char *str, int q);
 int	ft_printhex(unsigned long n, int q, char h);
 int	ft_printnbr(int n, int q);

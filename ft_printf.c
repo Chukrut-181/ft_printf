@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 09:51:28 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 10:36:57 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:07:14 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	ft_checkpointer(size_t adr, int q)
 static int	ft_discriminate(char d, va_list list, int q)
 {
 	if (d == 'c')
-		q = (ft_printchar(va_arg(list, int), q));
+		q += ft_printchar(va_arg(list, int));
 	else if (d == 's')
 		q = (ft_printstr(va_arg(list, char *), q));
 	else if (d == 'p')
@@ -41,7 +41,7 @@ static int	ft_discriminate(char d, va_list list, int q)
 	else if (d == 'X')
 		q = (ft_printhex(va_arg(list, unsigned int), q, 'X'));
 	else if (d == '%')
-		q = (ft_printchar('%', q));
+		q += (ft_printchar('%'));
 	return (q);
 }
 
@@ -63,7 +63,7 @@ int	ft_printf(char const *str, ...)
 		}
 		else
 		{
-			q = ft_printchar(str[i], q);
+			q += ft_printchar(str[i]);
 		}
 		i++;
 	}

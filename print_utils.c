@@ -6,17 +6,15 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:48:51 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 10:37:21 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 11:06:28 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printchar(char c, int q)
+int	ft_printchar(char c)
 {
-	write (1, &c, 1);
-	q++;
-	return (q);
+	return (write (1, &c, 1));
 }
 
 int	ft_printstr(char *str, int q)
@@ -28,7 +26,7 @@ int	ft_printstr(char *str, int q)
 	i = 0;
 	while (str[i])
 	{
-		q = ft_printchar(str[i], q);
+		q += ft_printchar(str[i]);
 		i++;
 	}
 	return (q);
@@ -39,9 +37,9 @@ int	ft_printhex(unsigned long n, int q, char h)
 	if (15 < n)
 		q = ft_printhex(n / 16, q, h);
 	if (h == 'x' || h == 'p')
-		q = ft_printchar("0123456789abcdef"[n % 16], q);
+		q += ft_printchar("0123456789abcdef"[n % 16]);
 	if (h == 'X')
-		q = ft_printchar("0123456789ABCDEF"[n % 16], q);
+		q += ft_printchar("0123456789ABCDEF"[n % 16]);
 	return (q);
 }
 
@@ -54,14 +52,14 @@ int	ft_printnbr(int n, int q)
 	}
 	if (n < 0)
 	{
-		q = ft_printchar('-', q);
+		q += ft_printchar('-');
 		n = -n;
 	}
 	if (9 < n)
 	{
 		q = ft_printnbr(n / 10, q);
 	}
-	q = ft_printchar((n % 10 + '0'), q);
+	q += ft_printchar((n % 10 + '0'));
 	return (q);
 }
 
@@ -71,6 +69,6 @@ int	ft_printunsnbr(unsigned int n, int q)
 	{
 		q = ft_printunsnbr(n / 10, q);
 	}
-	q = ft_printchar((n % 10 + '0'), q);
+	q += ft_printchar((n % 10 + '0'));
 	return (q);
 }
