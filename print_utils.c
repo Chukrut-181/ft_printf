@@ -6,16 +6,12 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:48:51 by igchurru          #+#    #+#             */
-/*   Updated: 2024/10/31 08:53:37 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/04 10:37:21 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*	ft_printchar - Writes a character to standard output.
-@c: Character to print.
-@q: Counter for printed characters.
-Returns: Updated counter after printing. */
 int	ft_printchar(char c, int q)
 {
 	write (1, &c, 1);
@@ -23,13 +19,6 @@ int	ft_printchar(char c, int q)
 	return (q);
 }
 
-/*	ft_printstr - Writes a string to standard output.
-@str: String to print.
-@q: Counter for printed characters.
-Returns: Updated counter after printing. 
-
-Handle NULL string by printing "(null)".
-Print each character of the string. */
 int	ft_printstr(char *str, int q)
 {
 	int	i;
@@ -45,13 +34,6 @@ int	ft_printstr(char *str, int q)
 	return (q);
 }
 
-/*	ft_printhex - Recursively prints a number in hexadecimal format.
-@n: Unsigned number to print in hexadecimal.
-@q: Counter for printed characters.
-@h: Hexadecimal format ('x' for lowercase, 'X' for uppercase).
-Returns: Updated counter after printing.
-
-Recursive division by 16 to get all digits. */
 int	ft_printhex(unsigned long n, int q, char h)
 {
 	if (15 < n)
@@ -63,15 +45,6 @@ int	ft_printhex(unsigned long n, int q, char h)
 	return (q);
 }
 
-/*	ft_printnbr - Recursively prints a signed integer.
-@n: Integer to print.
-@q: Counter for printed characters.
-Returns: Updated counter after printing.
-
-Handle INT_MIN explicitly.
-Print negative sign for negative numbers.
-Recursive division by 10 to get all digits.
-Print each digit */
 int	ft_printnbr(int n, int q)
 {
 	if (n == -2147483648)
@@ -92,13 +65,6 @@ int	ft_printnbr(int n, int q)
 	return (q);
 }
 
-/*	ft_printunsnbr - Recursively prints an unsigned integer.
-@n: Unsigned integer to print.
-@q: Counter for printed characters.
-Returns: Updated counter after printing.
-
-Recursive division by 10 to get all digits.
-Print each digit. */
 int	ft_printunsnbr(unsigned int n, int q)
 {
 	if (9 < n)
