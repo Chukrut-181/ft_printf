@@ -6,11 +6,20 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:57:30 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 11:18:16 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:46:29 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
+
+void	ft_apply_padding(t_format *format, int len, int *k)
+{
+	while (format && format->zero_padding == NO && format->pad_field > len)
+	{
+		*k += write(1, " ", 1);
+		format->pad_field--;
+	}
+}
 
 void	ft_determine_padding(t_format *format, const char *pad, int *j)
 {

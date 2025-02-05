@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:41:55 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 11:26:45 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:25:50 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ size_t	ft_strlen(const char *s);
 void	ft_check_flags(t_format *format, char f);
 void	ft_parse_format(t_format *format, const char *str, int *k);
 void	ft_determine_padding(t_format *format, const char *pad, int *i);
+void	ft_apply_padding(t_format *format, int len, int *k);
 
 #endif
