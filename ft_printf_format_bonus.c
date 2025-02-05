@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:57:30 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 10:39:18 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:18:16 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_determine_padding(t_format *format, const char *pad, int *j)
 {
-	int i;
+	int		i;
 	char	*temp;
 	char	*aux;
 	char	char_str[2];
-	
+
 	i = 0;
 	aux = NULL;
 	while ('0' <= pad[i] && pad[i] <= '9')
@@ -29,7 +29,7 @@ void	ft_determine_padding(t_format *format, const char *pad, int *j)
 		free(aux);
 		aux = temp;
 		i++;
-		(*j)++;
+		(*j) += 1;
 	}
 	format->pad_field = ft_atoi(aux);
 	free(aux);
@@ -50,7 +50,7 @@ void	ft_check_flags(t_format *format, char f)
 		format->hashtag = YES;
 }
 
-void	ft_parse_format(t_format *format, const char *str)
+void	ft_parse_format(t_format *format, const char *str, int *k)
 {
 	int	i;
 
@@ -70,4 +70,6 @@ void	ft_parse_format(t_format *format, const char *str)
 		if ('0' <= str[i] && str[i] <= '9')
 			ft_determine_padding(format, &str[i], &i);
 	}
+	format->specifier = str[i];
+	(*k) += i;
 }

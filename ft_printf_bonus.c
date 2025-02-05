@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:20 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 10:23:27 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:12:26 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,24 @@ static void	ft_checkpointer(size_t adr, int *q)
 	}
 }
 
-static void	ft_discriminate(char d, va_list list, int *q)
+static void	ft_discriminate(t_format *format, va_list list, int *q)
 {
-	if (d == 'c')
-		*q += ft_printchar(va_arg(list, int));
-	else if (d == 's')
+	if (format->specifier == 'c')
+		*q += ft_printchar(va_arg(list, int), format);
+	else if (format->specifier == 's')
 		ft_printstr(va_arg(list, char *), q);
-	else if (d == 'p')
+	else if (format->specifier == 'p')
 		ft_checkpointer(va_arg(list, size_t), q);
-	else if (d == 'i' || d == 'd')
+	else if (format->specifier == 'i' || format->specifier == 'd')
 		ft_printnbr(va_arg(list, int), q);
-	else if (d == 'u')
+	else if (format->specifier == 'u')
 		ft_printunsnbr(va_arg(list, unsigned int), q);
-	else if (d == 'x')
+	else if (format->specifier == 'x')
 		ft_printhex(va_arg(list, unsigned int), q, 'x');
-	else if (d == 'X')
+	else if (format->specifier == 'X')
 		ft_printhex(va_arg(list, unsigned int), q, 'X');
-	else if (d == '%')
-		*q += ft_printchar('%');
+	else if (format->specifier == '%')
+		*q += ft_printchar('%', NULL);
 	else
 		return ;
 }
@@ -102,11 +102,12 @@ int	ft_printf(char const *str, ...)
 		if (str[i] == '%')
 		{
 			i++;
-			ft_parse_format(&format, &str[i]);
-			ft_discriminate(str[i], list, &q);
+			ft_parse_format(&format, &str[i], &i);
+			ft_discriminate(&format, list, &q);
+			ft_memset(&format, 0, sizeof(t_format));
 		}
 		else
-			q += ft_printchar(str[i]);
+			q += ft_printchar(str[i], NULL);
 		i++;
 	}
 	va_end(list);

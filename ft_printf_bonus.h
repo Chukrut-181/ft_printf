@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:41:55 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 10:39:27 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:14:20 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_format
 	int		hashtag;
 	int		space_sign;
 	int		plus_sign;
-	char	d;
+	char	specifier;
 }	t_format;
 
 //	FT_PRINTF_BONUS.C
@@ -39,7 +39,7 @@ void	*ft_memset(void *b, int c, size_t len);
 char	*ft_strchr(const char *s, int c);
 
 //	FT_PRINTF_UTILS_BONUS.C
-int		ft_printchar(char c);
+int		ft_printchar(char c, t_format *format);
 void	ft_printstr(char *str, int *q);
 void	ft_printhex(unsigned long n, int *q, char h);
 void	ft_printnbr(int n, int *q);
@@ -52,7 +52,7 @@ size_t	ft_strlen(const char *s);
 
 //	FT_PRINTF_FORMAT_BONUS.C
 void	ft_check_flags(t_format *format, char f);
-void	ft_parse_format(t_format *format, const char *str);
+void	ft_parse_format(t_format *format, const char *str, int *k);
 void	ft_determine_padding(t_format *format, const char *pad, int *i);
 
 #endif
