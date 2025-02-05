@@ -6,51 +6,33 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:57:30 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/04 17:31:44 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 10:39:18 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	ft_determine_padding(t_format *format, const char *pad, int *j)
 {
-	unsigned char	*p;
-
-	p = b;
-	while (0 < len)
+	int i;
+	char	*temp;
+	char	*aux;
+	char	char_str[2];
+	
+	i = 0;
+	aux = NULL;
+	while ('0' <= pad[i] && pad[i] <= '9')
 	{
-		*p = (unsigned char)c;
-		p++;
-		len--;
+		char_str[0] = pad[i];
+		char_str[1] = '\0';
+		temp = ft_strjoin(aux, char_str);
+		free(aux);
+		aux = temp;
+		i++;
+		(*j)++;
 	}
-	return (b);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	char	ch;
-	char	*mark;
-
-	if (!s)
-		return (NULL);
-	ch = (char)c;
-	mark = NULL;
-	while (*s)
-	{
-		if (*s == ch)
-		{
-			mark = (char *)s;
-			return (mark);
-		}
-		else
-			s++;
-	}
-	if (ch == '\0')
-	{
-		mark = (char *)s;
-		return (mark);
-	}
-	return (mark);
+	format->pad_field = ft_atoi(aux);
+	free(aux);
 }
 
 void	ft_check_flags(t_format *format, char f)
@@ -64,22 +46,28 @@ void	ft_check_flags(t_format *format, char f)
 	}
 	else if (f == ' ' && format->plus_sign == NO)
 		format->space_sign = YES;
+	if (f == '#')
+		format->hashtag = YES;
 }
 
-void	ft_parse_format(t_format *format, char *str)
+void	ft_parse_format(t_format *format, const char *str)
 {
 	int	i;
 
 	i = 0;
 	while (!ft_strchr("cspdiuxX%", str[i]))
 	{
-		while (str[i] == '-' || str[i] == '+' || str[i] == ' ')
+		while (ft_strchr("-+ #", str[i]))
 		{
 			ft_check_flags(format, str[i]);
 			i++;
 		}
 		if (str[i] == '0' && format->align_left == NO)
+		{
 			format->zero_padding = YES;
-		i++;
+			i++;
+		}
+		if ('0' <= str[i] && str[i] <= '9')
+			ft_determine_padding(format, &str[i], &i);
 	}
 }

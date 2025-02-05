@@ -6,8 +6,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_printf.c ft_printf_utils.c\
 
+BONUS_SRCS = ft_printf_bonus.c ft_printf_utils_bonus.c \
+ft_printf_utils2_bonus.c  ft_printf_format_bonus.c
+
 OBJ_DIR = objects
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
+
+BONUS_OBJ_DIR = bonus_objects
+BONUS_OBJS = $(BONUS_SRCS:%.c=$(BONUS_OBJ_DIR)/%.o)
 
 GREEN = \033[1;32m
 YELLOW = \033[1;33m
@@ -23,11 +29,21 @@ $(NAME) : $(OBJS)
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
 
+$(BONUS_OBJ_DIR):
+	@mkdir -p $(BONUS_OBJ_DIR)
+
 $(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
+$(BONUS_OBJ_DIR)/%.o: %.c | $(BONUS_OBJ_DIR)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+bonus: $(BONUS_OBJS)
+	@ar crs $(NAME) $(BONUS_OBJS)
+	@echo "$(GREEN)libftprintf.a (with bonus) compilation OK$(RESET)"
+
 clean:
-	@rm -rf $(OBJ_DIR)
+	@rm -rf $(OBJ_DIR) $(BONUS_OBJ_DIR)
 	@echo "$(YELLOW)Objects directory removed$(RESET)"
 
 fclean: clean
@@ -36,4 +52,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
