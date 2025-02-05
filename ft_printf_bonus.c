@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:52:20 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 11:12:26 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:29:04 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,14 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-static void	ft_checkpointer(size_t adr, int *q)
+static void	ft_checkpointer(size_t adr, int *q, t_format *format)
 {
 	if (!adr)
-		ft_printstr("(nil)", q);
+		ft_printstr("(nil)", q, format);
 	else
 	{
-		ft_printstr("0x", q);
-		ft_printhex(adr, q, 'x');
+		ft_printstr("0x", q, format);
+		ft_printhex(adr, q, 'x', format);
 	}
 }
 
@@ -69,19 +69,19 @@ static void	ft_discriminate(t_format *format, va_list list, int *q)
 	if (format->specifier == 'c')
 		*q += ft_printchar(va_arg(list, int), format);
 	else if (format->specifier == 's')
-		ft_printstr(va_arg(list, char *), q);
+		ft_printstr(va_arg(list, char *), q, format);
 	else if (format->specifier == 'p')
-		ft_checkpointer(va_arg(list, size_t), q);
+		ft_checkpointer(va_arg(list, size_t), q, format);
 	else if (format->specifier == 'i' || format->specifier == 'd')
-		ft_printnbr(va_arg(list, int), q);
+		ft_printnbr(va_arg(list, int), q, format);
 	else if (format->specifier == 'u')
-		ft_printunsnbr(va_arg(list, unsigned int), q);
+		ft_printunsnbr(va_arg(list, unsigned int), q, format);
 	else if (format->specifier == 'x')
-		ft_printhex(va_arg(list, unsigned int), q, 'x');
+		ft_printhex(va_arg(list, unsigned int), q, 'x', format);
 	else if (format->specifier == 'X')
-		ft_printhex(va_arg(list, unsigned int), q, 'X');
+		ft_printhex(va_arg(list, unsigned int), q, 'X', format);
 	else if (format->specifier == '%')
-		*q += ft_printchar('%', NULL);
+		*q += ft_printchar('%', format);
 	else
 		return ;
 }

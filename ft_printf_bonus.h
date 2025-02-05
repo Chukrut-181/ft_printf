@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:41:55 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 11:14:20 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/05 11:26:45 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ char	*ft_strchr(const char *s, int c);
 
 //	FT_PRINTF_UTILS_BONUS.C
 int		ft_printchar(char c, t_format *format);
-void	ft_printstr(char *str, int *q);
-void	ft_printhex(unsigned long n, int *q, char h);
-void	ft_printnbr(int n, int *q);
-void	ft_printunsnbr(unsigned int n, int *q);
+void	ft_printstr(char *str, int *q, t_format *format);
+void	ft_printhex(unsigned long n, int *q, char h, t_format *format);
+void	ft_printnbr(int n, int *q, t_format *format);
+void	ft_printunsnbr(unsigned int n, int *q, t_format *format);
 
 //	FT_PRINTF_UTILS2_BONUS.C
 int		ft_atoi(const char *str);
