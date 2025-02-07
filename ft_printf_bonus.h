@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:41:55 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 13:25:50 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:55:33 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
+# include <math.h>
 
 # define NO 0
 # define YES 1 
@@ -49,6 +50,7 @@ void	ft_printunsnbr(unsigned int n, int *q, t_format *format);
 int		ft_atoi(const char *str);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
+int		ft_base16_len(int number);
 
 //	FT_PRINTF_FORMAT_BONUS.C
 void	ft_check_flags(t_format *format, char f);

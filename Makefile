@@ -15,16 +15,16 @@ OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 BONUS_OBJ_DIR = bonus_objects
 BONUS_OBJS = $(BONUS_SRCS:%.c=$(BONUS_OBJ_DIR)/%.o)
 
-GREEN = \033[1;32m
-YELLOW = \033[1;33m
-RED = \033[1;31m
+GREEN = \033[0;32m
+YELLOW = \033[0;33m
+RED = \033[0;31m
 RESET = \033[0m
 
 all: $(NAME)
 
 $(NAME) : $(OBJS)
 	@ar crs $(NAME) $(OBJS)
-	@echo "$(GREEN)libftprintf.a compilation OK$(RESET)"
+	@echo "$(GREEN)-> Ft_printf: libftprintf.a compilation OK$(RESET)"
 
 $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)
@@ -40,15 +40,15 @@ $(BONUS_OBJ_DIR)/%.o: %.c | $(BONUS_OBJ_DIR)
 
 bonus: $(BONUS_OBJS)
 	@ar crs $(NAME) $(BONUS_OBJS)
-	@echo "$(GREEN)libftprintf.a (with bonus) compilation OK$(RESET)"
+	@echo "$(GREEN)-> Ft_printf: libftprintf.a (with bonus) compilation OK$(RESET)"
 
 clean:
 	@rm -rf $(OBJ_DIR) $(BONUS_OBJ_DIR)
-	@echo "$(YELLOW)Objects directory removed$(RESET)"
+	@echo "$(YELLOW)-> Ft_printf: objects removed$(RESET)"
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(RED)libftprintf.a removed$(RESET)"
+	@echo "$(RED)-> Ft_printf: libftprintf.a removed$(RESET)"
 
 re: fclean all
 

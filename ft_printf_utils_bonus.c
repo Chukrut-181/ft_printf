@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 16:56:08 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 13:44:47 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:01:27 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,19 @@ void	ft_printstr(char *str, int *q, t_format *format)
 
 void	ft_printhex(unsigned long n, int *q, char h, t_format *format)
 {
+	int	len;
+
+	len = ft_base16_len(n);
+	if (format && format->align_left == NO && format->pad_field)
+		ft_apply_padding(format, len, q);
 	if (15 < n)
-		ft_printhex(n / 16, q, h, format);
+		ft_printhex(n / 16, q, h, NULL);
 	if (h == 'x' || h == 'p')
-		*q += ft_printchar("0123456789abcdef"[n % 16], format);
+		*q += ft_printchar("0123456789abcdef"[n % 16], NULL);
 	else if (h == 'X')
-		*q += ft_printchar("0123456789ABCDEF"[n % 16], format);
+		*q += ft_printchar("0123456789ABCDEF"[n % 16], NULL);
+	if (format && format->align_left == YES && format->pad_field)
+		ft_apply_padding(format, len, q);
 }
 
 void	ft_printnbr(int n, int *q, t_format *format)

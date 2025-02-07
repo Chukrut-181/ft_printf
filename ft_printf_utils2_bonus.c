@@ -6,11 +6,21 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 10:36:51 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/05 11:18:58 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:56:50 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
+
+int	ft_base16_len(int number)
+{
+	int len16;
+	if (number == 0)
+		len16 = 1;
+	else 
+		len16 = (int)(floor(log10(number) / log10(16)) + 1);
+	return (len16);
+}
 
 int	ft_atoi(const char *str)
 {
