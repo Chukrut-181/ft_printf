@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:54:03 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:28:30 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:34:07 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 static int	ft_pf_atoi(char k)
 {
-	int result;
+	int	result;
 
 	result = k - '0';
 	return (result);
 }
+
 static void	ft_parse_width(t_format *format, const char **str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (ft_isdigit(**str))
 	{

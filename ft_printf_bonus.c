@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:45:54 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:27:28 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:34:34 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ static void	ft_discriminate(t_format *format, va_list list, int *q)
 
 t_format	*ft_init_format(void)
 {
-	t_format *format;
+	t_format	*format;
 
 	format = malloc(sizeof(t_format));
-	
 	format->flags = 0;
 	format->width = 0;
 	format->precision = 0;
