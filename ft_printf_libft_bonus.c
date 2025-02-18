@@ -6,12 +6,23 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:43:44 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 14:38:45 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:41:48 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s)
+		return (i);
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')
