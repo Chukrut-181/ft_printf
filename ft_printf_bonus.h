@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:41:10 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 15:24:03 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:40:56 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_format	*ft_init_format(void);
 int			ft_printf(char const *str, ...);
 
 //	FT_PRINTF_UTILS.C
-int		ft_printchar(char c, t_format *format);
+int			ft_printchar(char c, t_format *format);
 
 //	FT_PRINTF_UTILS2.C
 t_format	*ft_parse_format(const char *str);
@@ -48,6 +48,5 @@ t_format	*ft_parse_format(const char *str);
 //FT_PRINTF_LIBFT_BONUS.C
 int			ft_isdigit(int c);
 void		*ft_memset(void *b, int c, size_t len);
-
 
 #endif
