@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:54:03 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:19:04 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:28:30 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ static void	ft_parse_flags(t_format *format, const char **str)
 	}
 }
 
-t_format	*ft_parse_format(const char *str)
+t_format	*ft_parse_format(const char **str)
 {
 	t_format	*format;
 
 	format = ft_init_format();
-	ft_parse_flags(format, &str);
-	ft_parse_width(format, &str);
-	format->specifier = *str;
+	ft_parse_flags(format, str);
+	ft_parse_width(format, str);
+	format->specifier = **str;
 	return (format);
 }

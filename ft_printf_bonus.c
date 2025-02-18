@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:45:54 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:19:32 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:27:28 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_printf(char const *str, ...)
 		if (*str == '%')
 		{
 			str++;
-			format = ft_parse_format(str);
+			format = ft_parse_format(&str);
 			ft_discriminate(format, list, &q);
 			free(format);
 		}
