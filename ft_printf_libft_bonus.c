@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 11:43:44 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:41:48 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:52:38 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
+
 int	ft_isdigit(int c)
 {
 	if ('0' <= c && c <= '9')

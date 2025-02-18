@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 16:45:54 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:37:13 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:52:04 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_discriminate(t_format *format, va_list list, int *q)
 {
 	if (format->specifier == 'c')
 		*q += ft_printchar(va_arg(list, int), format);
- 	else if (format->specifier == 's')
+	else if (format->specifier == 's')
 		ft_printstr(va_arg(list, char *), q, format);
 /*	else if (format->specifier == 'p')
 		ft_checkpointer(va_arg(list, size_t), q);
