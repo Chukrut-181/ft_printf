@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/28 13:54:13 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/28 14:49:41 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:52:29 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_apply_padding(int pad_len, char pad_char, int *q)
 
 void	ft_left_align(int content_len, int width, int *q, char pad_char)
 {
-	int pad_len;
+	int	pad_len;
 
 	pad_len = width - content_len;
 	if (pad_len > 0)
@@ -47,7 +47,7 @@ void	ft_left_align(int content_len, int width, int *q, char pad_char)
 
 void	ft_right_align(int content_len, int width, int *q, char pad_char)
 {
-	int pad_len;
+	int	pad_len;
 
 	pad_len = width - content_len;
 	if (pad_len > 0)

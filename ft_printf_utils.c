@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 14:48:51 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 17:01:16 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:48:56 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	ft_printhex(unsigned long n, int *q, char h)
 	else if (h == 'X')
 		*q += ft_printchar("0123456789ABCDEF"[n % 16]);
 }
-
 
 void	ft_printnbr(int n, int *q)
 {

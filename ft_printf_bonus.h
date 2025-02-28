@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:41:10 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/28 14:50:28 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/28 15:49:10 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int			ft_numlen(int n);
 void		ft_apply_padding(int pad_len, char pad_char, int *q);
 void		ft_left_align(int content_len, int width, int *q, char pad_char);
 void		ft_right_align(int content_len, int width, int *q, char pad_char);
-
 
 //FT_PRINTF LIBFT BONUS.C 
 size_t		ft_strlen(const char *s);
