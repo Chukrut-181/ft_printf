@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 15:41:10 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:51:43 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/28 14:50:28 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,25 @@ typedef struct s_format
 	char	specifier;
 }	t_format;
 
-//	FT_PRINTF_BONUS.C
+//	FT_PRINTF BONUS
 t_format	*ft_init_format(void);
 int			ft_printf(char const *str, ...);
 
-//	FT_PRINTF_UTILS.C
+//	FT_PRINTF UTILS
 void		ft_printstr(char *str, int *q, t_format *format);
 int			ft_printchar(char c, t_format *format);
 
-//	FT_PRINTF_UTILS2.C
+//	FT_PRINTF PARSE UTILS
 t_format	*ft_parse_format(const char **str);
 
-//FT_PRINTF_LIBFT_BONUS.C
+//	FT_PRINTF PADDING
+int			ft_numlen(int n);
+void		ft_apply_padding(int pad_len, char pad_char, int *q);
+void		ft_left_align(int content_len, int width, int *q, char pad_char);
+void		ft_right_align(int content_len, int width, int *q, char pad_char);
+
+
+//FT_PRINTF LIBFT BONUS.C 
 size_t		ft_strlen(const char *s);
 int			ft_isdigit(int c);
 void		*ft_memset(void *b, int c, size_t len);

@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ft_printf.c ft_printf_utils.c\
 
 BONUS_SRCS = ft_printf_bonus.c ft_printf_utils_bonus.c \
-ft_printf_utils2_bonus.c ft_printf_libft_bonus.c
+ft_printf_libft_bonus.c ft_printf_padding_bonus.c ft_printf_parse_utils_bonus.c \
 
 OBJ_DIR = objects
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
