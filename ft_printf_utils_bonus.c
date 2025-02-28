@@ -6,7 +6,7 @@
 /*   By: igchurru <igchurru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 10:58:46 by igchurru          #+#    #+#             */
-/*   Updated: 2025/02/18 16:47:51 by igchurru         ###   ########.fr       */
+/*   Updated: 2025/02/28 13:28:03 by igchurru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_printstr(char *str, int *q, t_format *format)
 	int	pad_len;
 
 	if (!str)
-		return (ft_printstr("(null)", q, NULL));
+		return (ft_printstr("(null)", q, format));
 	i = 0;
 	len = ft_strlen(str);
 	pad_len = format->width - len;
