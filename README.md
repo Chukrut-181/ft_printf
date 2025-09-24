@@ -1,7 +1,7 @@
 **ft_printf - Custom printf Implementation | 42 Academy | Score: 100/100 | Completed: May 21st, 2024**
 
-📋 **Project Overview**
-ft_printf is the second project in 42 Academy's curriculum, challenging students to recreate the versatile printf function from the C standard library. 
+📋 **Project Overview**  
+ft_printf is the second project in 42 Academy's curriculum.  
 Challenge: Implement a fully functional printf replica handling multiple format specifiers, with attention to edge cases.
 
 🔧 **Key Technical Skills Developed**
